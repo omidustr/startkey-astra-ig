@@ -1,0 +1,44 @@
+name: Startkey Astra Instagram yayin
+
+on:
+  schedule:
+    - cron: '0 7 * * *'    # 10:00 Turkiye saati (UTC+3)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Deneme modu (hicbir sey yayinlanmaz)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-yayin
+  cancel-in-progress: false
+
+jobs:
+  yayinla:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Yayinla
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python3 publish.py
+
+      - name: Durumu kaydet
+        if: success()
+        run: |
+          if git diff --quiet state/durum.json; then
+            echo "Degisiklik yok."
+          else
+            git config user.name  "startkey-astra-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add state/durum.json
+            git commit -m "Yayin durumu guncellendi [skip ci]"
+            git push
+          fi

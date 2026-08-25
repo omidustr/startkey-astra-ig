@@ -1,4 +1,22 @@
 {
-  "yayinlanan": {},
-  "log": []
+  "yayinlanan": {
+    "1": {
+      "feed_id": "18108407287841254",
+      "story_id": "18101972828261388",
+      "zaman": "2026-08-25T10:22:26+03:00",
+      "ad": "DAY_01_ASTRA_MARKA"
+    }
+  },
+  "log": [
+    {
+      "zaman": "2026-08-25T10:22:26+03:00",
+      "gun": 1,
+      "ad": "DAY_01_ASTRA_MARKA",
+      "planlanan": "2026-08-25",
+      "gecikme_gun": 0,
+      "gonderi_id": "18108407287841254",
+      "hikaye_id": "18101972828261388",
+      "sonuc": "BASARILI"
+    }
+  ]
 }

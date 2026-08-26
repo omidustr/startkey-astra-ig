@@ -5,6 +5,12 @@
       "story_id": "18101972828261388",
       "zaman": "2026-08-25T10:22:26+03:00",
       "ad": "DAY_01_ASTRA_MARKA"
+    },
+    "2": {
+      "feed_id": "17990505666041896",
+      "story_id": "18366841786209138",
+      "zaman": "2026-08-26T10:22:22+03:00",
+      "ad": "DAY_02_DOGRU_FIYAT"
     }
   },
   "log": [
@@ -16,6 +22,16 @@
       "gecikme_gun": 0,
       "gonderi_id": "18108407287841254",
       "hikaye_id": "18101972828261388",
+      "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-26T10:22:22+03:00",
+      "gun": 2,
+      "ad": "DAY_02_DOGRU_FIYAT",
+      "planlanan": "2026-08-26",
+      "gecikme_gun": 0,
+      "gonderi_id": "17990505666041896",
+      "hikaye_id": "18366841786209138",
       "sonuc": "BASARILI"
     }
   ]

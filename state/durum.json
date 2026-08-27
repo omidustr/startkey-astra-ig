@@ -11,6 +11,12 @@
       "story_id": "18366841786209138",
       "zaman": "2026-08-26T10:22:22+03:00",
       "ad": "DAY_02_DOGRU_FIYAT"
+    },
+    "3": {
+      "feed_id": "17918318775425067",
+      "story_id": "18077204975367953",
+      "zaman": "2026-08-27T13:24:41+03:00",
+      "ad": "DAY_03_KEYBROX_ESLESTIRME"
     }
   },
   "log": [
@@ -32,6 +38,16 @@
       "gecikme_gun": 0,
       "gonderi_id": "17990505666041896",
       "hikaye_id": "18366841786209138",
+      "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-27T13:24:41+03:00",
+      "gun": 3,
+      "ad": "DAY_03_KEYBROX_ESLESTIRME",
+      "planlanan": "2026-08-27",
+      "gecikme_gun": 0,
+      "gonderi_id": "17918318775425067",
+      "hikaye_id": "18077204975367953",
       "sonuc": "BASARILI"
     }
   ]

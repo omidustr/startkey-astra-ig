@@ -4,10 +4,14 @@ on:
   schedule:
     # GitHub'in zamanlayicisi "en iyi caba" garantisi verir, dusuk trafikli
     # public repolarda saatlerce gecikebilir (27 Agu: 10:00 planli, 13:24'te
-    # calisti). Hedef 10:00 TR ama 10:00-14:45 arasi 15 dk'da bir tekrar
-    # dener; publish.py o gun zaten yayinlandiysa aninda cikar (idempotent),
-    # bu yuzden fazladan tetiklenme guvenlidir ve cift gonderi yapmaz.
-    - cron: '*/15 7-11 * * *'   # 10:00-14:45 Turkiye saati (UTC+3), 15 dk'da bir
+    # calisti). Ilk duzeltme (*/15, yani :00/:15/:30/:45) HICBIR KEZ
+    # tetiklenmedi (28 Agu) — GitHub tam bu tam-saat/ceyrek noktalarini en
+    # yogun aninlar olarak belgeliyor, rastgele bir dakikaya kaydirmayi
+    # oneriyor. Bu yuzden simdi :07/:22/:37/:52'ye kaydirildi. Hedef 10:00 TR
+    # ama 10:07-14:52 arasi tekrar dener; publish.py o gun zaten
+    # yayinlandiysa aninda cikar (idempotent), bu yuzden fazladan tetiklenme
+    # guvenlidir ve cift gonderi yapmaz.
+    - cron: '7,22,37,52 7-11 * * *'   # 10:07-14:52 Turkiye saati (UTC+3)
   workflow_dispatch:
     inputs:
       dry_run:

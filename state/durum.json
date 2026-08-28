@@ -17,6 +17,12 @@
       "story_id": "18077204975367953",
       "zaman": "2026-08-27T13:24:41+03:00",
       "ad": "DAY_03_KEYBROX_ESLESTIRME"
+    },
+    "4": {
+      "feed_id": "17895101580600506",
+      "story_id": "17952995586228867",
+      "zaman": "2026-08-28T13:19:21+03:00",
+      "ad": "DAY_04_PROFESYONEL_SUNUM"
     }
   },
   "log": [
@@ -48,6 +54,16 @@
       "gecikme_gun": 0,
       "gonderi_id": "17918318775425067",
       "hikaye_id": "18077204975367953",
+      "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-28T13:19:21+03:00",
+      "gun": 4,
+      "ad": "DAY_04_PROFESYONEL_SUNUM",
+      "planlanan": "2026-08-28",
+      "gecikme_gun": 0,
+      "gonderi_id": "17895101580600506",
+      "hikaye_id": "17952995586228867",
       "sonuc": "BASARILI"
     }
   ]

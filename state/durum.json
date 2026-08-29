@@ -23,6 +23,12 @@
       "story_id": "17952995586228867",
       "zaman": "2026-08-28T13:19:21+03:00",
       "ad": "DAY_04_PROFESYONEL_SUNUM"
+    },
+    "5": {
+      "feed_id": "18019078970714454",
+      "story_id": "17961205634981219",
+      "zaman": "2026-08-29T10:20:44+03:00",
+      "ad": "DAY_05_BOLGE_KARSIYAKA"
     }
   },
   "log": [
@@ -64,6 +70,16 @@
       "gecikme_gun": 0,
       "gonderi_id": "17895101580600506",
       "hikaye_id": "17952995586228867",
+      "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-29T10:20:44+03:00",
+      "gun": 5,
+      "ad": "DAY_05_BOLGE_KARSIYAKA",
+      "planlanan": "2026-08-29",
+      "gecikme_gun": 0,
+      "gonderi_id": "18019078970714454",
+      "hikaye_id": "17961205634981219",
       "sonuc": "BASARILI"
     }
   ]

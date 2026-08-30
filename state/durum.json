@@ -29,6 +29,12 @@
       "story_id": "17961205634981219",
       "zaman": "2026-08-29T10:20:44+03:00",
       "ad": "DAY_05_BOLGE_KARSIYAKA"
+    },
+    "6": {
+      "feed_id": "17925370101413222",
+      "story_id": "18422044939158254",
+      "zaman": "2026-08-30T10:21:38+03:00",
+      "ad": "DAY_06_YUNANISTAN_GOLDEN_VISA"
     }
   },
   "log": [
@@ -80,6 +86,16 @@
       "gecikme_gun": 0,
       "gonderi_id": "18019078970714454",
       "hikaye_id": "17961205634981219",
+      "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-30T10:21:38+03:00",
+      "gun": 6,
+      "ad": "DAY_06_YUNANISTAN_GOLDEN_VISA",
+      "planlanan": "2026-08-30",
+      "gecikme_gun": 0,
+      "gonderi_id": "17925370101413222",
+      "hikaye_id": "18422044939158254",
       "sonuc": "BASARILI"
     }
   ]

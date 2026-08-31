@@ -47,6 +47,12 @@
       "story_id": "17930634027400608",
       "zaman": "2026-08-31T19:22:39+03:00",
       "ad": "DAY_08_ARSA_YATIRIMI"
+    },
+    "9": {
+      "feed_id": "18134701768539045",
+      "story_id": "17978583999082985",
+      "zaman": "2026-08-31T19:31:26+03:00",
+      "ad": "DAY_09_NEDEN_SATILMIYOR"
     }
   },
   "log": [
@@ -129,9 +135,19 @@
       "gonderi_id": "18093176228430888",
       "hikaye_id": "17930634027400608",
       "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-31T19:31:26+03:00",
+      "gun": 9,
+      "ad": "DAY_09_NEDEN_SATILMIYOR",
+      "planlanan": "2026-09-02",
+      "gecikme_gun": -2,
+      "gonderi_id": "18134701768539045",
+      "hikaye_id": "17978583999082985",
+      "sonuc": "BASARILI"
     }
   ],
   "gunluk_sayac": {
-    "2026-08-31": 1
+    "2026-08-31": 2
   }
 }

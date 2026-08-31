@@ -41,6 +41,12 @@
       "story_id": "18104918579058628",
       "zaman": "2026-08-31T10:30:00+03:00",
       "ad": "DAY_07_DENIZ_MI_MERKEZ_MI"
+    },
+    "8": {
+      "feed_id": "18093176228430888",
+      "story_id": "17930634027400608",
+      "zaman": "2026-08-31T19:22:39+03:00",
+      "ad": "DAY_08_ARSA_YATIRIMI"
     }
   },
   "log": [
@@ -113,6 +119,19 @@
       "gonderi_id": "17889534903438035",
       "hikaye_id": "18104918579058628",
       "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-31T19:22:39+03:00",
+      "gun": 8,
+      "ad": "DAY_08_ARSA_YATIRIMI",
+      "planlanan": "2026-09-01",
+      "gecikme_gun": -1,
+      "gonderi_id": "18093176228430888",
+      "hikaye_id": "17930634027400608",
+      "sonuc": "BASARILI"
     }
-  ]
+  ],
+  "gunluk_sayac": {
+    "2026-08-31": 1
+  }
 }

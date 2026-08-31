@@ -2,16 +2,15 @@ name: Startkey Astra Instagram yayin
 
 on:
   schedule:
-    # GitHub'in zamanlayicisi "en iyi caba" garantisi verir, dusuk trafikli
-    # public repolarda saatlerce gecikebilir (27 Agu: 10:00 planli, 13:24'te
-    # calisti). Ilk duzeltme (*/15, yani :00/:15/:30/:45) HICBIR KEZ
-    # tetiklenmedi (28 Agu) — GitHub tam bu tam-saat/ceyrek noktalarini en
-    # yogun aninlar olarak belgeliyor, rastgele bir dakikaya kaydirmayi
-    # oneriyor. Bu yuzden simdi :07/:22/:37/:52'ye kaydirildi. Hedef 10:00 TR
-    # ama 10:07-14:52 arasi tekrar dener; publish.py o gun zaten
-    # yayinlandiysa aninda cikar (idempotent), bu yuzden fazladan tetiklenme
-    # guvenlidir ve cift gonderi yapmaz.
-    - cron: '7,22,37,52 7-11 * * *'   # 10:07-14:52 Turkiye saati (UTC+3)
+    # 31 Agu 2026: Olcay gunde 2 paylasim istedi (11:00 + 19:00). Onceki
+    # 5 saatlik tek-hedef pencere (7,22,37,52 x 5 saat) GUNLUK SINIR
+    # olmadan calisiyordu; KeyBrox botunda ayni desen 30 gunluk kuyrugu
+    # 2 gunde tuketip Meta'da hataya yol acti. publish.py'de artik "gunde
+    # en fazla 2" kilidi VAR, bu yuzden pencere dar tutuluyor: her hedeften
+    # sonraki ~40 dk icinde 3 deneme, tam saatte degil (GitHub'in en yogun
+    # oldugu nokta).
+    - cron: '7,27,47 8 * * *'    # 11:07-11:47 Turkiye saati (UTC+3)
+    - cron: '7,27,47 16 * * *'   # 19:07-19:47 Turkiye saati (UTC+3)
   workflow_dispatch:
     inputs:
       dry_run:

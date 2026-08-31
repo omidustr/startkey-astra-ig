@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Startkey Astra — Instagram otomatik yayinlayici.
 
-Gunun icerigini yayinlar: 1 feed gonderisi (4:5) + 1 hikaye (9:16).
+Her calistirmada 1 feed gonderisi (4:5) + 1 hikaye (9:16) yayinlar: sirali
+kuyruktan henuz TAMAMLANMAMIS en dusuk sirali seti alir.
 
-Sira SAYAC ile degil TAKVIM ile belirlenir: tarihi bugun veya gecmiste olan,
-henuz yayinlanmamis EN ESKI set alinir. Boylece bir gun kacirilsa bile icerik
-kaybolmaz, plan da tumuyle kaymaz.
+GUNDE EN FAZLA GUNLUK_LIMIT set (31 Agu 2026: 11:00 + 19:00 = gunde 2).
+Onceki surum tarihe gore kapiydi (bir gunde yalniz 1); cron guvenlik-agi
+tekrar denemeleri gunde 15-20 kez calisinca bu, KeyBrox botunda 30 gunluk
+kuyrugu 2 gunde tuketip Meta tarafinda hataya yol acti (bkz. keybrox-ig/
+publish.py). Ayni riski onlemek icin Astra da sayimlik gunluk kilide
+gecirildi; tarih alani artik yalniz bilgi amacli (gecikme_gun raporunda).
 
 Feed ve hikaye ayri ayri isaretlenir; feed yayinlanip hikaye patlarsa bir sonraki
 calistirmada yalniz hikaye denenir, feed tekrar YAYINLANMAZ.
@@ -25,6 +29,7 @@ REPO = os.environ.get("GITHUB_REPOSITORY", "")
 REF = os.environ.get("MEDIA_REF", "main")
 RAW = f"https://raw.githubusercontent.com/{REPO}/{REF}/"
 DRY = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
+GUNLUK_LIMIT = 2  # 11:00 + 19:00 = gunde en fazla 2 set
 
 # Turkiye 2016'dan beri yaz saati uygulamiyor — sabit UTC+3.
 TR = datetime.timezone(datetime.timedelta(hours=3))
@@ -66,17 +71,13 @@ def yayinla(cid):
 
 
 def sirada_ne_var(sets, durum):
-    """Tarihi gelmis, henuz TAMAMLANMAMIS en eski set."""
-    t = bugun()
-    uygun = []
+    """Henuz TAMAMLANMAMIS en dusuk sirali set (tarih artik kilit degil)."""
     for s in sets:
-        if s["tarih"] > t:
-            continue
         kayit = durum["yayinlanan"].get(str(s["sira"]), {})
         if kayit.get("feed_id") and kayit.get("story_id"):
             continue
-        uygun.append(s)
-    return uygun[0] if uygun else None
+        return s
+    return None
 
 
 def main():
@@ -85,6 +86,12 @@ def main():
     durum = json.load(open(durum_yolu, encoding="utf-8"))
     durum.setdefault("yayinlanan", {})
     durum.setdefault("log", [])
+    gunluk = durum.setdefault("gunluk_sayac", {})
+
+    bugun_str = bugun()
+    if gunluk.get(bugun_str, 0) >= GUNLUK_LIMIT:
+        print(f"{bugun_str} icin gunluk sinir ({GUNLUK_LIMIT}) doldu. Cikiliyor.")
+        return 0
 
     item = sirada_ne_var(icerik["sets"], durum)
     if item is None:
@@ -139,6 +146,7 @@ def main():
     kayit["zaman"] = simdi
     kayit["ad"] = item["ad"]
     durum["yayinlanan"][anahtar] = kayit
+    gunluk[bugun_str] = gunluk.get(bugun_str, 0) + 1
     durum["log"].append({
         "zaman": simdi, "gun": item["sira"], "ad": item["ad"],
         "planlanan": item["tarih"], "gecikme_gun": gecikme,

@@ -35,6 +35,12 @@
       "story_id": "18422044939158254",
       "zaman": "2026-08-30T10:21:38+03:00",
       "ad": "DAY_06_YUNANISTAN_GOLDEN_VISA"
+    },
+    "7": {
+      "feed_id": "17889534903438035",
+      "story_id": "18104918579058628",
+      "zaman": "2026-08-31T10:30:00+03:00",
+      "ad": "DAY_07_DENIZ_MI_MERKEZ_MI"
     }
   },
   "log": [
@@ -96,6 +102,16 @@
       "gecikme_gun": 0,
       "gonderi_id": "17925370101413222",
       "hikaye_id": "18422044939158254",
+      "sonuc": "BASARILI"
+    },
+    {
+      "zaman": "2026-08-31T10:30:00+03:00",
+      "gun": 7,
+      "ad": "DAY_07_DENIZ_MI_MERKEZ_MI",
+      "planlanan": "2026-08-31",
+      "gecikme_gun": 0,
+      "gonderi_id": "17889534903438035",
+      "hikaye_id": "18104918579058628",
       "sonuc": "BASARILI"
     }
   ]
